@@ -1,18 +1,18 @@
-import React from "react"
-import ReactRouterContext from "./ReactRouterContext"
+import React from "react";
+import ReactRouterContext from "./ReactRouterContext";
 
 class Route extends React.Component {
-  static contextType = ReactRouterContext
+  static contextType = ReactRouterContext;
   render() {
-    const { location, history } = this.context
-    const match = {}
-    const { path, component: Component } = this.props
+    const { location, history } = this.context;
+    const match = {};
+    const { path, component: Component } = this.props;
     if (path === location.pathname) {
-      return <Component location={location} history={history} match={match} />
+      return <Component location={location} history={history} match={match} />;
     } else {
-      return null
+      return null;
     }
   }
 }
 
-export default Route
+export default Route;

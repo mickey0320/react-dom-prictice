@@ -1,7 +1,16 @@
-import React from "react"
+import React from "react";
 
-const Home = () => {
-  return <div>home</div>
-}
+const Home = (props) => {
+  console.log(props);
+  function goProfile() {
+    props.history.push("/profile", { name: "home" });
+  }
+  return (
+    <div>
+      <p>home</p>
+      <button onClick={goProfile}>go profile</button>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
