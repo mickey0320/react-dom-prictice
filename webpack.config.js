@@ -1,5 +1,5 @@
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -13,6 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -33,4 +34,4 @@ module.exports = {
       template: "./public/index.html",
     }),
   ],
-}
+};
