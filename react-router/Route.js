@@ -6,11 +6,13 @@ class Route extends React.Component {
   static contextType = ReactRouterContext;
   render() {
     const { location, history } = this.context;
-    const { exact, path, component: Component } = this.props;
-    const match = matchPath(location.pathname, {
-      strict: exact,
-      path,
-    });
+    const { exact, path, component: Component, computedMatch } = this.props;
+    const match = computedMatch
+      ? computedMatch
+      : matchPath(location.pathname, {
+          exact,
+          path,
+        });
     if (match) {
       return <Component location={location} history={history} match={match} />;
     } else {
