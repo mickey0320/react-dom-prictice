@@ -5,18 +5,16 @@ import matchPath from "./matchPath";
 
 function Switch(props) {
   const { location } = useContext(ReactRouterContext);
-  let Route = null;
+  let element = null;
   let match;
   React.Children.forEach(props.children, (child) => {
-    if (Route) return;
+    if (match) return;
+    element = child;
     const { path, exact } = child.props;
     match = matchPath(location.pathname, { exact, path });
-    if (match) {
-      Route = child;
-    }
   });
 
-  return Route && React.cloneElement(Route, { computedMatch: match });
+  return match && React.cloneElement(element, { computedMatch: match });
 }
 
 export default Switch;

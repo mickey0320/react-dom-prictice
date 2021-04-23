@@ -9,7 +9,7 @@ function compilePath(path, options) {
   };
 }
 function matchPath(pathname, options) {
-  const { path, exact = false, strict = false, sensitive = false } = options;
+  const { path = "", exact = false, strict = false, sensitive = false } = options;
   const { regexp, keys } = compilePath(path, { end: exact, strict, sensitive });
   const match = regexp.exec(pathname);
   if (!match) return null;
